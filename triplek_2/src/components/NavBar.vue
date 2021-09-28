@@ -15,13 +15,14 @@
           :class="{ 'navbar-nav': true, 'me-auto': menu.me_auto }"
           v-for="menu in menu_category"
           :key="menu.id"
-          >
+        >
           <li class="nav-item" v-for="menu_object in menu.value" :key="menu_object.key">
             <a
               :class="{ 'nav-link': true, active: menu == menu_object.key }"
               @click="onMovePage($event, menu_object)"
               href="#"
-              >{{ menu_object.value }}</a>
+              >{{ menu_object.value }}</a
+            >
           </li>
         </ul>
       </div>
@@ -36,7 +37,7 @@ export default {
   name: 'NavBar',
   setup() {
     // data v2
-    const menu = ref('home')
+    const menu = ref('profile')
     const menus = [
       { key: 'home', value: '홈', URL: '#', position: 'left' },
       { key: 'app', value: '애플리케이션', URL: '#', position: 'left' },

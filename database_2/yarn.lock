@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@bundled-es-modules/axios@^0.21.1":
+  version "0.21.1"
+  resolved "https://registry.yarnpkg.com/@bundled-es-modules/axios/-/axios-0.21.1.tgz#aa92a935abc9708dbb573c3c4ae8591b867d9138"
+  integrity sha512-jlHdEagempZTRIy7KgR1FACLS7sO0QTZhM+6G7xd9kIs/9rzU77d2R2NqxiVFArjjrt2MX6nOP/GvR7+8SWJpQ==
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
