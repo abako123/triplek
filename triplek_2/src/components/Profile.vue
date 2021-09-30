@@ -75,12 +75,12 @@ export default {
     const { axiosGet } = useAxios()
 
     const onSuccess = (data) => {
-      console.log(store.dispatch)
       store.dispatch('about_me/setAboutMeData', data.data)
     }
     axiosGet('/db/about-me', onSuccess)
 
     const user_data = computed(() => store.getters['about_me/user_data'])
+
     return {
       user_data,
     }

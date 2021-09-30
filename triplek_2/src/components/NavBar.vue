@@ -17,12 +17,9 @@
           :key="menu.id"
         >
           <li class="nav-item" v-for="menu_object in menu.value" :key="menu_object.key">
-            <a
-              :class="{ 'nav-link': true, active: menu == menu_object.key }"
-              @click="onMovePage($event, menu_object)"
-              href="#"
-              >{{ menu_object.value }}</a
-            >
+            <router-link :to="menu_object.url" class="nav-link">{{
+              menu_object.value
+            }}</router-link>
           </li>
         </ul>
       </div>
@@ -31,36 +28,27 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
-
+import { computed } from 'vue'
 export default {
   name: 'NavBar',
   setup() {
-    // data v2
-    const menu = ref('profile')
     const menus = [
-      { key: 'home', value: '홈', URL: '#', position: 'left' },
-      { key: 'app', value: '애플리케이션', URL: '#', position: 'left' },
-      { key: 'me', value: 'Profile', URL: '#', position: 'right' },
+      { key: 'home', value: '홈', url: '/home', position: 'left' },
+      {
+        key: 'app',
+        value: '어플리케이션',
+        url: '/application',
+        position: 'left',
+      },
+      { key: 'profile', value: 'Profile', url: '/profile', position: 'right' },
     ]
 
-    // computed v2
     const left_menus = computed(() => menus.filter((i) => i.position == 'left'))
     const right_menus = computed(() =>
       menus.filter((i) => i.position == 'right')
     )
 
-    // methods v2
-    const onMovePage = (evt, menu_object) => {
-      if (evt) {
-        evt.preventDefault()
-      }
-      // menu 변수의 값을 menu_object.key 변경
-      menu.value = menu_object.key
-    }
-
     return {
-      menu,
       menu_category: [
         {
           id: 1,
@@ -69,7 +57,6 @@ export default {
         },
         { id: 2, me_auto: false, value: right_menus.value },
       ],
-      onMovePage,
     }
   },
 }
